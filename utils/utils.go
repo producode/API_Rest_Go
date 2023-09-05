@@ -21,7 +21,7 @@ func Calculate_discount(products []models.Product_cart, total float32) float32 {
 
 func Calculate_shipping(products []models.Product_cart, shipping float32) float32 {
 	for _, product := range products {
-		if product.Product.Category == models.Equipment && (float32(product.Quantity)*product.Product.Price) > 70 {
+		if product.Product.Category == models.Equipment && product.Quantity >= 3 {
 			free_shipping_rule(&shipping)
 		}
 	}
