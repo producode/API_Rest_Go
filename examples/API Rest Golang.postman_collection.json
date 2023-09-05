@@ -8,50 +8,15 @@
 		{
 			"name": "Login",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{token}}",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "Quantity",
-							"value": "2",
-							"type": "default"
-						},
-						{
-							"key": "Name",
-							"value": "arabic coffee",
-							"type": "default"
-						},
-						{
-							"key": "Category",
-							"value": "coffee",
-							"type": "default"
-						},
-						{
-							"key": "Price",
-							"value": "20",
-							"type": "default"
-						}
-					]
-				},
 				"url": {
-					"raw": "{{url}}/UpsetProduct",
+					"raw": "{{url}}/LogIn",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"UpsetProduct"
+						"LogIn"
 					]
 				}
 			},
@@ -76,23 +41,18 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "Quantity",
-							"value": "2",
-							"type": "default"
-						},
-						{
 							"key": "Name",
-							"value": "arabic coffee",
+							"value": "Rimmel",
 							"type": "default"
 						},
 						{
 							"key": "Category",
-							"value": "coffee",
+							"value": "Accesories",
 							"type": "default"
 						},
 						{
 							"key": "Price",
-							"value": "20",
+							"value": "7",
 							"type": "default"
 						}
 					]
@@ -129,22 +89,12 @@
 					"formdata": [
 						{
 							"key": "Quantity",
-							"value": "2",
-							"type": "default"
-						},
-						{
-							"key": "Name",
-							"value": "arabic coffee",
-							"type": "default"
-						},
-						{
-							"key": "Category",
-							"value": "coffee",
-							"type": "default"
-						},
-						{
-							"key": "Price",
 							"value": "20",
+							"type": "default"
+						},
+						{
+							"key": "Id",
+							"value": "1",
 							"type": "default"
 						}
 					]
@@ -204,12 +154,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/GetCart",
+					"raw": "{{url}}/GetOrder",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"GetCart"
+						"GetOrder"
 					]
 				}
 			},
