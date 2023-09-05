@@ -1,5 +1,9 @@
 package models
 
+import (
+	"github.com/dgrijalva/jwt-go"
+)
+
 type Cart struct {
 	Id           int
 	User_id      int
@@ -46,6 +50,11 @@ type User struct {
 	Id       int
 	Username string
 	Password string
+}
+
+type UserClaims struct {
+	User_id int `json:"user_id"`
+	jwt.StandardClaims
 }
 
 const (

@@ -27,6 +27,9 @@ func main() {
 		AllowHeaders: "*",
 	}))
 
+	//User
+	app.Post("/LogIn", controller.LogIn)
+
 	//Product
 	app.Post("/InsertProduct", controller.InsertProduct)
 	app.Post("/UpsetProduct", controller.UpsetProduct)

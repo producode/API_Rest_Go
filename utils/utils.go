@@ -1,6 +1,9 @@
 package utils
 
-import "github.com/apirestgo/models"
+import (
+	"github.com/apirestgo/models"
+	"github.com/dgrijalva/jwt-go"
+)
 
 func Calculate_discount(products []models.Product_cart, total float32) float32 {
 	var discount float32 = 0
@@ -26,6 +29,15 @@ func Calculate_shipping(products []models.Product_cart, shipping float32) float3
 		}
 	}
 	return shipping
+}
+
+func Generate_JWT(user models.User) string {
+	claims := models.UserClaims{
+		User_id: user.Id,
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	signedToken, _ := token.SignedString([]byte("secret"))
+	return signedToken
 }
 
 func quantity_rule(product_cart models.Product_cart, discount *float32, quantity_limit int, quantity_discount int) {

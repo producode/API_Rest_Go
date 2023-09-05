@@ -71,20 +71,7 @@ func GetCartByUserId(id int) (models.Cart, error) {
 	}
 	return models.Cart{}, errors.New("cart not found")
 }
-func GetUserByToken(token string) (models.User, error) {
-	/*for _, user := range users {
-		if user.Token == token {
-			return user, nil
-		}
-	}
-	return models.User{}, errors.New("user not found")*/
-	user := models.User{
-		Id:       1,
-		Username: "admin",
-		Password: "admin",
-	}
-	return user, nil
-}
+
 func SetCartByUserId(id int, cart models.Cart) {
 	for i, cart_find := range carts {
 		if cart_find.User_id == id {

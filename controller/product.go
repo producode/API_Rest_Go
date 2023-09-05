@@ -29,13 +29,13 @@ func UpsetProduct(c *fiber.Ctx) error {
 	if err := c.BodyParser(product_cart_dto); err != nil {
 		return err
 	}
-	user, err := services.Authenticate(c.Get("token"))
+	user_id, err := services.Authenticate(c.Get("Authorization"))
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(err)
 	}
 	quantity := product_cart_dto.Quantity
 	product_id := product_cart_dto.Id
-	err, cart := services.UpsetProduct(product_id, user.Id, quantity)
+	err, cart := services.UpsetProduct(product_id, user_id, quantity)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(err)
 	}
@@ -43,11 +43,11 @@ func UpsetProduct(c *fiber.Ctx) error {
 }
 
 func GetCart(c *fiber.Ctx) error {
-	user_id, err := services.Authenticate(c.Get("token"))
+	user_id, err := services.Authenticate(c.Get("Authorization"))
 	if err != nil {
 		return c.Status(fiber.StatusForbidden).JSON(err)
 	}
-	cart, err := services.GetCart(user_id.Id)
+	cart, err := services.GetCart(user_id)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(err)
 	}
@@ -55,11 +55,11 @@ func GetCart(c *fiber.Ctx) error {
 }
 
 func GetOrder(c *fiber.Ctx) error {
-	user_id, err := services.Authenticate(c.Get("token"))
+	user_id, err := services.Authenticate(c.Get("Authorization"))
 	if err != nil {
 		return c.Status(fiber.StatusForbidden).JSON(err)
 	}
-	order, err := services.GetOrder(user_id.Id)
+	order, err := services.GetOrder(user_id)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(err)
 	}
