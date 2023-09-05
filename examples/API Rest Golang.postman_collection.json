@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "93cb5fe6-9b43-433e-ae8f-0a84745be9a4",
+		"name": "API Rest Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Quantity",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "Name",
+							"value": "arabic coffee",
+							"type": "default"
+						},
+						{
+							"key": "Category",
+							"value": "coffee",
+							"type": "default"
+						},
+						{
+							"key": "Price",
+							"value": "20",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/UpsetProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"UpsetProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Quantity",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "Name",
+							"value": "arabic coffee",
+							"type": "default"
+						},
+						{
+							"key": "Category",
+							"value": "coffee",
+							"type": "default"
+						},
+						{
+							"key": "Price",
+							"value": "20",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/InsertProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"InsertProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upset product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Quantity",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "Name",
+							"value": "arabic coffee",
+							"type": "default"
+						},
+						{
+							"key": "Category",
+							"value": "coffee",
+							"type": "default"
+						},
+						{
+							"key": "Price",
+							"value": "20",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/UpsetProduct",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"UpsetProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/GetCart",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"GetCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/GetCart",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"GetCart"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
