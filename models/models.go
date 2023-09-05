@@ -47,3 +47,9 @@ type User struct {
 	Username string
 	Password string
 }
+
+const (
+	Coffee     = "Coffee"
+	Equipment  = "Equipment"
+	Accesories = "Accesories"
+)

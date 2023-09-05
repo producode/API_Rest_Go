@@ -39,13 +39,13 @@ func SetOrders(order models.Order) {
 func SetUsers(user models.User) {
 	users = append(users, user)
 }
-func GetProductById(id int) models.Product {
+func GetProductById(id int) (models.Product, error) {
 	for _, product := range products {
 		if product.Id == id {
-			return product
+			return product, nil
 		}
 	}
-	return models.Product{}
+	return models.Product{}, errors.New("product not found")
 }
 func GetCartById(id int) models.Cart {
 	for _, cart := range carts {

@@ -3,6 +3,7 @@ package services
 import (
 	"github.com/apirestgo/models"
 	"github.com/apirestgo/repository"
+	"github.com/apirestgo/utils"
 )
 
 func InsertProduct(product models.Product) (error, int) {
@@ -11,12 +12,15 @@ func InsertProduct(product models.Product) (error, int) {
 }
 
 func UpsetProduct(product_id int, user_id int, quantity int) (error, models.Cart) {
-	cart, err := repository.GetCartByUserId(user_id)
-	product := repository.GetProductById(product_id)
+	product, err := repository.GetProductById(product_id)
+	if err != nil {
+		return err, models.Cart{}
+	}
 	product_cart := models.Product_cart{
 		Product:  product,
 		Quantity: quantity,
 	}
+	cart, err := repository.GetCartByUserId(user_id)
 	if err != nil {
 		if err.Error() == "cart not found" {
 			cart = models.Cart{
@@ -61,19 +65,15 @@ func GetOrder(user_id int) (models.Order, error) {
 		Total: models.Total{
 			Product:  0,
 			Discount: 0,
-			Shipping: 0,
+			Shipping: 5,
 			Order:    0,
 		},
 	}
 	for _, product_cart := range cart.Product_cart {
 		order.Total.Product += product_cart.Product.Price * float32(product_cart.Quantity)
 	}
-	if order.Total.Product > 100 {
-		order.Total.Discount = order.Total.Product * 0.1
-	}
-	if order.Total.Product > 50 {
-		order.Total.Shipping = 5
-	}
+	order.Total.Discount = utils.Calculate_discount(cart.Product_cart, order.Total.Product)
+	order.Total.Shipping = utils.Calculate_shipping(cart.Product_cart, order.Total.Shipping)
 	order.Total.Order = order.Total.Product - order.Total.Discount + order.Total.Shipping
 	repository.SetOrders(order)
 	repository.DeleteCartByUserId(user_id)
