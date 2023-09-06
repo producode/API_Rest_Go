@@ -32,7 +32,8 @@ func main() {
 
 	//Product
 	app.Post("/InsertProduct", controller.InsertProduct)
-	app.Post("/UpsetProduct", controller.UpsetProduct)
+	app.Post("/AddToCart/:product_id", controller.UpsertProductCart)
+	app.Patch("/ModifyQuantity/:product_id", controller.ModifyCart)
 	app.Get("/GetCart", controller.GetCart)
 	app.Get("/GetOrder", controller.GetOrder)
 

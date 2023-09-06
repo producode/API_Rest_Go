@@ -10,5 +10,5 @@ func LogIn(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(err)
 	}
-	return c.JSON(token)
+	return c.SendString(token)
 }

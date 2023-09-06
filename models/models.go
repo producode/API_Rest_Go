@@ -10,7 +10,6 @@ type Cart struct {
 	Product_cart []Product_cart
 }
 type Product_cart struct {
-	Id       int
 	Product  Product
 	Quantity int
 }
@@ -23,7 +22,6 @@ type Product struct {
 }
 
 type Order struct {
-	Id      int
 	Cart_id int
 	Total   Total
 }
@@ -33,17 +31,6 @@ type Total struct {
 	Discount float32
 	Shipping float32
 	Order    float32
-}
-
-type Product_cart_dto struct {
-	Quantity int
-	Id       int
-}
-
-type Product_dto struct {
-	Name     string
-	Category string
-	Price    float32
 }
 
 type User struct {
